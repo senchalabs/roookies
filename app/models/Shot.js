@@ -17,17 +17,3 @@ roookies.models.Shot = Ext.regModel("roookies.models.Shot", {
     ]
 });
 
-roookies.stores.shots = {
-    everyone: new Ext.data.Store({
-        model: "roookies.models.Shot",
-        proxy: roookies.proxyFactory({
-            path: '/shots/everyone',
-            reader: {
-                type: 'json',
-                root: 'shots'
-            }
-        }),
-        autoLoad:true
-    })
-};
-

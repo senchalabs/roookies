@@ -1,0 +1,86 @@
+$base-color: #709e3f;
+$include-list-highlights: false;
+
+@import 'sencha-touch/default/all';
+
+@include sencha-panel;
+@include sencha-buttons;
+@include sencha-sheet;
+@include sencha-tabs;
+@include sencha-toolbar;
+// @include sencha-list;
+@include sencha-layout;
+@include sencha-loading-spinner;
+
+.x-toolbar-title {
+  font-family: 'Pacifico', arial, serif;
+  font-weight: normal;
+  font-size: 1.6em;
+  line-height: 1.4em;
+}
+
+.x-list {
+
+  .x-list-item {
+    background:url(wood.png);
+    padding: 8px 0;
+    border-bottom: 1px solid #a37229;
+    border-top: 1px solid #f3ce96;
+    &:first-child {
+      border-top: none;
+    }
+
+    img {
+      border: 1px solid #666;
+      padding: 8px;
+      margin: 0px auto;
+      display:block;
+      background:#eee;
+      -webkit-box-shadow: rgba(#333, .3) 0 0 4px;
+    }
+  }
+
+  .shot-meta {
+    height:0;
+    overflow:hidden;
+    @include background-gradient(#333, 'recessed');
+    line-height:.66em;
+    font-size:2em;
+    text-align:center;
+
+    span {
+      font-size: 0.5em;
+      line-height: 0.5em;
+      margin:0 .5em;
+      color:#fff;
+      text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0;
+
+      img {
+        -webkit-mask-size: 1.2em;
+        width: 1.2em;
+        height: 1.2em;
+        background-color:#fff;
+        margin-right: .25em;
+        vertical-align: text-bottom;
+        @include background-gradient($base-color, $base-gradient);
+      }
+
+      &.views img {
+        -webkit-mask-image: theme_image($theme-name, "pictos/look.png");
+      }
+
+      &.likes img {
+        -webkit-mask-image: theme_image($theme-name, "pictos/heart.png");
+      }
+
+      &.comments img {
+        -webkit-mask-image: theme_image($theme-name, "pictos/chat1.png");
+      }
+
+      &.rebounds img {
+        -webkit-mask-image: theme_image($theme-name, "pictos/shuffle.png");
+      }
+
+    }
+  }
+}

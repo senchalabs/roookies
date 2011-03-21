@@ -4,12 +4,12 @@ roookies.views.Viewport = Ext.extend(Ext.Panel, {
     cardSwitchAnimation: 'slide',
     initComponent: function() {
 
-        roookies.views.shotsList = new roookies.views.ShotsList();
+        roookies.views.shotsLists = new roookies.views.ShotsLists();
         roookies.views.shotDetail = new roookies.views.ShotDetail();
 
         Ext.apply(this, {
             items: [
-                roookies.views.shotsList,
+                roookies.views.shotsLists,
                 roookies.views.shotDetail,
             ]
         });
