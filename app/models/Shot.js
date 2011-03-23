@@ -15,6 +15,12 @@ roookies.models.Shot = Ext.regModel("roookies.models.Shot", {
         {name: "likes_count", type: "int"},
         {name: "player", type: "auto", convert: function (value) {
             return new roookies.models.Player(value);
+        }},
+        {name: "scaled_height", type: "int", convert: function(value, record) {
+            var h = record.get('height'),
+                w = record.get('width');
+            return (h / w) * 286;
         }}
+
     ]
 });

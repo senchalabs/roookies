@@ -10,11 +10,9 @@ $include-default-icons: false;
 @include sencha-layout;
 @include sencha-loading-spinner;
 
-
 @include pictos-iconmask('user');
 @include pictos-iconmask('favorites');
 @include pictos-iconmask('team');
-
 
 .x-toolbar-title {
   font-family: 'Pacifico', arial, serif;
@@ -23,37 +21,30 @@ $include-default-icons: false;
   line-height: 1.4em;
 }
 
+.x-list {
+  @include background-gradient(#333, 'recessed');
+}
+
 .shot {
-  background:url(wood.jpg);
   padding: 8px 0;
   border-bottom: 1px solid #a37229;
   border-top: 1px solid #f3ce96;
 
-  img {
-    margin: 0px auto;
+  img.shot-image {
     display:block;
-    &.shot-image {
-      border: 1px solid #666;
-      -webkit-box-shadow: 0 0 4px rgba(#333, .5);
-      padding: 8px;
-      background:#eee;
-      clear:both;
-      width:304px;
-    }
+    padding: 8px;
+    margin: 0px auto;
+    border: 1px solid #666;
+    -webkit-box-shadow: 0 0 4px rgba(#333, .5);
+    background:#eee;
+    clear:both;
+    width:304px;
   }
 
   .title {
     margin: 0px auto 8px;
     width: 304px;
     text-shadow: 0 1px 0 rgba(#fff, .5) ;
-
-    & img.avatar {
-      border-color: #333;
-      float:left;
-      width:80px;
-      height:80px;
-      margin:0 8px 8px 0;
-    }
     h2 {
       font-size:1.3em;
       overflow : hidden;
@@ -70,28 +61,18 @@ $include-default-icons: false;
 }
 
 .comment {
-  background:url(wood.jpg);
   padding: 8px;
   border-bottom: 1px solid #a37229;
   border-top: 1px solid #f3ce96;
   text-shadow: 0 1px 0 rgba(#fff, .5);
   min-height: 96px;
-  img.avatar {
-    border-color: #333;
-    clear:both;
-    float:left;
-    width:80px;
-    height:80px;
-    margin:0 8px 8px 0;
-  }
   .player {
     color:#ce2e41;
-    display:block;
   }
 }
 
-.x-list {
-  @include background-gradient(#333, 'recessed');
+.shot, .comment {
+  background:inline-image("wood.jpg", 'image/jpg');
 }
 
 .shot-meta {
@@ -137,4 +118,11 @@ $include-default-icons: false;
     }
 
   }
+}
+
+.avatar {
+  border-color: #333;
+  clear:both;
+  float:left;
+  margin:0 8px 8px 0;
 }

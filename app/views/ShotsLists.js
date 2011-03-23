@@ -26,7 +26,7 @@ roookies.views.ShotsInnerList = Ext.extend(Ext.List, {
             'singletap',
             this.listeners.metadisclose,
             this,
-            {delegate: 'span'}
+            {delegate: 'span,small'}
         );
         roookies.views.ShotsInnerList.superclass.afterRender.call(this);
     },

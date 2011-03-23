@@ -25,7 +25,7 @@ roookies.views.ShotDetail = Ext.extend(Ext.Panel, {
             tpl: [
                 '<div class="title">',
                     '<tpl for="player.data">',
-                        '<img class="avatar" src="{avatar_url}">',
+                        roookies.views.avatarTpl(),
                     '</tpl>',
                     '<h2>{title}</h2>',
                     '<tpl for="player.data">',
@@ -55,8 +55,8 @@ roookies.views.ShotDetail = Ext.extend(Ext.Panel, {
         this.comments = new Ext.List({
             itemTpl: [
                 '<tpl for="player.data">',
-                    '<img class="avatar" src="{avatar_url}" />',
-                    '<span class="player">{username}</span>',
+                    roookies.views.avatarTpl(),
+                    '<span class="player">{username}</span><br/>',
                 '</tpl>',
                 '{body}'
             ],
