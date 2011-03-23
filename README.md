@@ -7,7 +7,7 @@ Entries to the competition should comprise a single CSS file only: no changes ar
 
 We recommend that images are included inline in the generated CSS (as they are in the example), simply so that the judges can easily test them without having to extract directories of additional resources. However, you may also wish to submit your SCSS source too.
 
-To get an idea of how this all works, take a look at the sample roookies.scss (and the resulting roookies.css) files that are shipped in the <code>theming</code> directory of this project. This theme was crafted by Jen Gordon of the awesome [http://www.tapptics.com/ Tapptics]
+To get an idea of how this all works, take a look at the sample roookies.scss (and the resulting roookies.css) files that are shipped in the <code>theming</code> directory of this project. This theme was crafted by Jen Gordon of the awesome [Tapptics](http://www.tapptics.com/)
 
 For more information about how to use SCSS and Compass, please consult the [Saas](http://sass-lang.com/) and [Compass](http://compass-style.org) web sites.
 
