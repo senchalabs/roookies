@@ -1,36 +1,44 @@
 
 roookies.views.ShotsInnerList = Ext.extend(Ext.List, {
-    itemTpl: "<img src='http://i.tinysrc.mobi/-34/{image_url}' />",
-    itemTplPost:
-        "<div class='shot-meta'>" +
-            "<span class='views'><img src='" + Ext.BLANK_IMAGE_URL + "'>{views_count}</span>" +
-            "<span class='likes'><img src='" + Ext.BLANK_IMAGE_URL + "'>{likes_count}</span>" +
-            "<span class='comments'><img src='" + Ext.BLANK_IMAGE_URL + "'>{comments_count}</span>" +
-            "<span class='rebounds'><img src='" + Ext.BLANK_IMAGE_URL + "'>{rebounds_count}</span>" +
-        "</div>",
+
+    itemTpl: roookies.views.imgTpl(),
+    itemTplPost: roookies.views.metaTpl(true),
+
+    itemCls: 'shot',
+
     multiSelect: true,
     simpleSelect: true,
 
     metaOpenAnim: new Ext.Anim({
-        from: {height:'0'},
-        to: {height:'1em'},
+        from: {maxHeight:'0'},
+        to: {maxHeight:'2em'},
         autoClear: false
     }),
     metaCloseAnim: new Ext.Anim({
-        to: {height:'0'},
-        from: {height:'1em'},
+        to: {maxHeight:'0'},
+        from: {maxHeight:'2em'},
         autoClear: false
     }),
 
     afterRender: function () {
-        this.mon(this.getTargetEl(), 'singletap', this.handleItemDisclosure, this, {delegate: '.x-list-disclosure'});
+        this.addManagedListener(
+            this.getTargetEl(),
+            'singletap',
+            this.listeners.metadisclose,
+            this,
+            {delegate: 'span'}
+        );
         roookies.views.ShotsInnerList.superclass.afterRender.call(this);
     },
 
     listeners: {
         itemtap: function (list, index, element, event) {
             var record = list.getRecord(element);
-            var meta = Ext.get(element).next('.shot-meta');
+            var item = Ext.get(element);
+
+            this.scroller.scrollTo({x: 0, y: item.getOffsetsTo(this.scrollEl)[1]}, 300);
+
+            var meta = item.next('.shot-meta');
             if (!meta) {
                 return;
             }
@@ -43,8 +51,20 @@ roookies.views.ShotsInnerList = Ext.extend(Ext.List, {
                     meta, list.metaOpenAnim
                 );
             }
-        }
+        },
+        metadisclose: function (event, element) {
+            var detailType = element.className;
+            var record = this.getRecord(Ext.get(element).parent('.shot-meta').prev('.x-list-item', true));
+            console.log(detailType);
+            Ext.dispatch({
+                controller: roookies.controllers.shots,
+                action: 'show',
+                id: record.getId(),
+                store: this.getStore(),
+                detailType: detailType
+            });
 
+        }
     },
 
     initComponent: function () {
@@ -70,25 +90,49 @@ roookies.views.ShotsLists = Ext.extend(Ext.TabPanel, {
     cardSwitchAnimation: 'fade',
     items: [
         new roookies.views.ShotsInnerList({
-            store: roookies.shotStoreFactory({
-                path: '/shots/debuts'
+            store: new Ext.data.Store({
+                model: 'roookies.models.Shot',
+                autoLoad: true,
+                proxy: {
+                    type: 'scripttag',
+                    url: 'http://api.dribbble.com/shots/debuts',
+                    reader: {
+                        type: 'json',
+                        root: 'shots'
+                    }
+                }
             }),
-            iconCls: 'user',
-            title:'Debuts'
+            iconCls: 'user'
         }),
         new roookies.views.ShotsInnerList({
-            store: roookies.shotStoreFactory({
-                path: '/shots/popular'
+            store: new Ext.data.Store({
+                model: 'roookies.models.Shot',
+                autoLoad: true,
+                proxy: {
+                    type: 'scripttag',
+                    url: 'http://api.dribbble.com/shots/popular',
+                    reader: {
+                        type: 'json',
+                        root: 'shots'
+                    }
+                }
             }),
-            iconCls: 'favorites',
-            title:'Popular'
+            iconCls: 'favorites'
         }),
         new roookies.views.ShotsInnerList({
-            store: roookies.shotStoreFactory({
-                path: '/shots/everyone'
+            store: new Ext.data.Store({
+                model: 'roookies.models.Shot',
+                autoLoad: true,
+                proxy: {
+                    type: 'scripttag',
+                    url: 'http://api.dribbble.com/shots/everyone',
+                    reader: {
+                        type: 'json',
+                        root: 'shots'
+                    }
+                }
             }),
-            iconCls: 'team',
-            title:'Everyone'
+            iconCls: 'team'
         }),
     ]
 });

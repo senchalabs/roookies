@@ -5,6 +5,8 @@ roookies.models.Shot = Ext.regModel("roookies.models.Shot", {
         {name: "url", type: "string"},
         {name: "image_url", type: "string"},
         {name: "image_teaser_url", type: "string"},
+        {name: "width", type: "int"},
+        {name: "height", type: "int"},
         {name: "views_count", type: "int"},
         {name: "likes_count", type: "int"},
         {name: "comments_count", type: "int"},
@@ -16,4 +18,3 @@ roookies.models.Shot = Ext.regModel("roookies.models.Shot", {
         }}
     ]
 });
-
