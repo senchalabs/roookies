@@ -7,9 +7,9 @@ Entries to the competition should comprise a single CSS file only: no changes ar
 
 We recommend that images are included inline in the generated CSS (as they are in the example), simply so that the judges can easily test them without having to extract directories of additional resources. However, you may also wish to submit your SCSS source too.
 
-To get an idea of how this all works, take a look at the sample roookies.scss (and the resulting roookies.css) files that are shipped in the <code>theming</code> directory of this project. This theme was crafted by Jen Gordon of the awesome http://www.tapptics.com/
+To get an idea of how this all works, take a look at the sample roookies.scss (and the resulting roookies.css) files that are shipped in the <code>theming</code> directory of this project. This theme was crafted by Jen Gordon of the awesome [http://www.tapptics.com/ Tapptics]
 
-For more information about how to use SCSS and Compass, please consult http://sass-lang.com/ and http://compass-style.org
+For more information about how to use SCSS and Compass, please consult the [http://sass-lang.com/ Saas] and [http://compass-style.org Compass] web sites.
 
 To get started with this project, you will need to follow the instructions below.
 
@@ -17,7 +17,7 @@ To get started with this project, you will need to follow the instructions below
 Installing Sencha Touch
 -----------------------
 
-Download the Sencha Touch v1.1 SDK from http://www.sencha.com/products/touch/download/ and place (or symlink) the unzipped directory, renamed to <code>touch</code>, into the <code>lib</code> folder.
+Download the Sencha Touch v1.1 SDK from [http://www.sencha.com/products/touch/download/ here] and place (or symlink) the unzipped directory, renamed to <code>touch</code>, into the <code>lib</code> folder.
 
 This should ensure that the <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags in the <code>index.html</code> of the application itself point to the correct locations for the JavaScript and CSS resources:
 
@@ -36,7 +36,7 @@ Use the contents of the <code>theming</code> folder for creating your custom the
 
         <link href="theming/roookies.css" rel="stylesheet" type="text/css" />
 
-2.  Remove the existing <code>&lt;link&gt;</code> to <code>sencha-touch.css</code> (the roookies.css file includes the entire styling for the app)
+2.  Remove the existing <code>&lt;link&gt;</code> to <code>sencha-touch.css</code> (the <code>roookies.css</code> file includes the entire styling for the app)
 
 3.  Refresh the application. You should now see green and wood.
 
@@ -47,7 +47,7 @@ Use the contents of the <code>theming</code> folder for creating your custom the
         > compass -v
         Compass 0.11.beta.3
 
-5.  Make changes to the roookies.scss file
+5.  Make changes to the <code>roookies.scss</code> file
 
 6.  Run compass to compile the CSS:
 
