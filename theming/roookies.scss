@@ -113,11 +113,12 @@ $include-default-icons: false;
       @include background-gradient($base-color, $base-gradient);
     }
 
-    &.noun {
-      display:none;
-    }
-
   }
+
+  .noun {
+    display:none;
+  }
+
 }
 
 .avatar {
