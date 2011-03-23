@@ -9,7 +9,7 @@ We recommend that images are included inline in the generated CSS (as they are i
 
 To get an idea of how this all works, take a look at the sample roookies.scss (and the resulting roookies.css) files that are shipped in the <code>theming</code> directory of this project. This theme was crafted by Jen Gordon of the awesome [http://www.tapptics.com/ Tapptics]
 
-For more information about how to use SCSS and Compass, please consult the [http://sass-lang.com/ Saas] and [http://compass-style.org Compass] web sites.
+For more information about how to use SCSS and Compass, please consult the [Saas](http://sass-lang.com/) and [Compass](http://compass-style.org) web sites.
 
 To get started with this project, you will need to follow the instructions below.
 
@@ -17,7 +17,7 @@ To get started with this project, you will need to follow the instructions below
 Installing Sencha Touch
 -----------------------
 
-Download the Sencha Touch v1.1 SDK from [http://www.sencha.com/products/touch/download/ here] and place (or symlink) the unzipped directory, renamed to <code>touch</code>, into the <code>lib</code> folder.
+Download the Sencha Touch v1.1 SDK from [here](http://www.sencha.com/products/touch/download/) and place (or symlink) the unzipped directory, renamed to <code>touch</code>, into the <code>lib</code> folder.
 
 This should ensure that the <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags in the <code>index.html</code> of the application itself point to the correct locations for the JavaScript and CSS resources:
 
