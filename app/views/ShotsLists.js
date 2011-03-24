@@ -55,7 +55,6 @@ roookies.views.ShotsInnerList = Ext.extend(Ext.List, {
         metadisclose: function (event, element) {
             var detailType = element.className;
             var record = this.getRecord(Ext.get(element).parent('.shot-meta').prev('.x-list-item', true));
-            console.log(detailType);
             Ext.dispatch({
                 controller: roookies.controllers.shots,
                 action: 'show',
@@ -77,7 +76,7 @@ roookies.views.ShotsInnerList = Ext.extend(Ext.List, {
 });
 
 
-roookies.views.ShotsLists = Ext.extend(Ext.TabPanel, {
+roookies.views.ShotsLists = Ext.extend(Ext.Panel, {
     layout: 'fit',
     dockedItems: [{
         xtype: 'toolbar',
@@ -104,35 +103,35 @@ roookies.views.ShotsLists = Ext.extend(Ext.TabPanel, {
             }),
             iconCls: 'user'
         }),
-        new roookies.views.ShotsInnerList({
-            store: new Ext.data.Store({
-                model: 'roookies.models.Shot',
-                autoLoad: true,
-                proxy: {
-                    type: 'scripttag',
-                    url: 'http://api.dribbble.com/shots/popular',
-                    reader: {
-                        type: 'json',
-                        root: 'shots'
-                    }
-                }
-            }),
-            iconCls: 'favorites'
-        }),
-        new roookies.views.ShotsInnerList({
-            store: new Ext.data.Store({
-                model: 'roookies.models.Shot',
-                autoLoad: true,
-                proxy: {
-                    type: 'scripttag',
-                    url: 'http://api.dribbble.com/shots/everyone',
-                    reader: {
-                        type: 'json',
-                        root: 'shots'
-                    }
-                }
-            }),
-            iconCls: 'team'
-        }),
+        //new roookies.views.ShotsInnerList({
+        //    store: new Ext.data.Store({
+        //        model: 'roookies.models.Shot',
+        //        autoLoad: true,
+        //        proxy: {
+        //            type: 'scripttag',
+        //            url: 'http://api.dribbble.com/shots/popular',
+        //            reader: {
+        //                type: 'json',
+        //                root: 'shots'
+        //            }
+        //        }
+        //    }),
+        //    iconCls: 'favorites'
+        //}),
+        //new roookies.views.ShotsInnerList({
+        //    store: new Ext.data.Store({
+        //        model: 'roookies.models.Shot',
+        //        autoLoad: true,
+        //        proxy: {
+        //            type: 'scripttag',
+        //            url: 'http://api.dribbble.com/shots/everyone',
+        //            reader: {
+        //                type: 'json',
+        //                root: 'shots'
+        //            }
+        //        }
+        //    }),
+        //    iconCls: 'team'
+        //}),
     ]
 });
